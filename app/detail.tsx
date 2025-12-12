@@ -1,7 +1,9 @@
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Product } from '../api/products';
 import { Ionicons } from '@expo/vector-icons';
+import { useCart } from '../context/CartContext';
 
 export default function Detail() {
     const params = useLocalSearchParams();
@@ -60,11 +62,55 @@ export default function Detail() {
                     {product.description}
                 </Text>
 
-                <TouchableOpacity className="bg-slate-900 py-5 rounded-2xl items-center shadow-xl active:opacity-90 flex-row justify-center">
-                    <Ionicons name="cart-outline" size={24} color="white" style={{ marginRight: 8 }} />
-                    <Text className="text-white font-bold text-lg tracking-wide">Agregar al Carrito</Text>
-                </TouchableOpacity>
+                <AddToCartButton product={product} />
             </View>
         </ScrollView>
+    );
+}
+
+
+
+function AddToCartButton({ product }: { product: Product }) {
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+    const { addToCart } = useCart();
+
+    const handlePress = () => {
+        if (status !== 'idle') return;
+
+        setStatus('loading');
+
+        // Simulate network delay for effect
+        setTimeout(() => {
+            addToCart(product);
+            setStatus('success');
+            // Reset after showing success
+            setTimeout(() => {
+                setStatus('idle');
+            }, 2000);
+        }, 800);
+    };
+
+    return (
+        <TouchableOpacity
+            activeOpacity={0.9}
+            onPress={handlePress}
+            className={`py-5 rounded-2xl items-center shadow-xl flex-row justify-center transition-all ${status === 'success' ? 'bg-green-600' :
+                status === 'loading' ? 'bg-slate-800' : 'bg-slate-900'
+                }`}
+        >
+            {status === 'loading' ? (
+                <ActivityIndicator color="white" />
+            ) : status === 'success' ? (
+                <>
+                    <Ionicons name="checkmark-circle" size={24} color="white" style={{ marginRight: 8 }} />
+                    <Text className="text-white font-bold text-lg tracking-wide">¡Agregado!</Text>
+                </>
+            ) : (
+                <>
+                    <Ionicons name="cart-outline" size={24} color="white" style={{ marginRight: 8 }} />
+                    <Text className="text-white font-bold text-lg tracking-wide">Agregar al Carrito</Text>
+                </>
+            )}
+        </TouchableOpacity>
     );
 }

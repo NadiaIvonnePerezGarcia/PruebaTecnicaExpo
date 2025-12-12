@@ -5,11 +5,12 @@ Aplicación móvil de e-commerce "Premium" desarrollada con Expo y React Native.
 ## Características de la Aplicación
 
 - **Identidad "NovaMarket":** Branding visual con paleta de colores neutros (Navy/Slate) y diseño limpio.
-- **Pantalla de Bienvenida:** Loading screen animada con identidad de marca.
-- **Catálogo Premium:** Listado de productos con tarjetas minimalistas y sombras suaves.
-- **Detalle Inmersivo:** Pantalla de detalle con imagen destacada y tipografía jerarquizada.
-- **Búsqueda Instantánea:** Filtrado local optimizado.
-- **Navegación Fluida:** Stack Navigator transparente y gestual.
+- **Carga/Bienvenida:** Intro animada "NovaMarket".
+- **Catálogo Premium:** Tarjetas minimalistas con sombras suaves.
+- **Filtrado Avanzado:** Búsqueda por texto + Chips de categorías dinámicos (UI pulida).
+- **Detalle Inmersivo:** Layout limpio con jerarquía visual.
+- **Carrito Completo:** Estado global (Context), badge en header y pantalla de gestión de pedidos.
+- **Navegación Fluida:** Stack Navigator.
 
 ## Instrucciones de Ejecución
 
