@@ -1,50 +1,47 @@
-# Welcome to your Expo app 👋
+# Prueba Técnica - App de Productos (Expo / React Native)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación móvil desarrollada con Expo y React Native que consume la [FakeStoreAPI](https://fakestoreapi.com/) para mostrar un listado de productos y sus detalles.
 
-## Get started
+## Requerimientos Cumplidos
 
-1. Install dependencies
+- **Pantalla Principal (Listado):** Muestra una lista de productos obtenidos de la API en tarjetas reutilizables.
+- **Pantalla de Detalle:** Muestra información detallada del producto (Imagen, Precio, Categoría, Descripción, Rating).
+- **Navegación:** Uso de React Navigation (Expo Router Stack) para navegar entre pantallas.
+- **API:** Fetching de datos usando `axios` desde FakeStoreAPI.
+- **Búsqueda (Bonus):** Barra de búsqueda funcional para filtrar productos localmente.
+- **UI/UX:** Diseño limpio y moderno utilizando **NativeWind (TailwindCSS)** e indicadores de carga.
 
+## Instrucciones de Ejecución
+
+Sigue estos pasos para correr el proyecto localmente:
+
+1. **Instalar dependencias:**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. **Iniciar el servidor de desarrollo:**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Abrir en tu dispositivo:**
+   - Escanea el código QR con la app **Expo Go** (Android/iOS).
+   - O presiona `a` para abrir en emulador Android / `i` para simulador iOS.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Stack Tecnológico
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Framework:** Expo (React Native)
+- **Navegación:** Expo Router (Stack)
+- **Estilos:** NativeWind (TailwindCSS)
+- **HTTP Client:** Axios
+- **Iconos:** Expo Vector Icons (Ionicons)
 
-## Get a fresh project
+## Estructura del Proyecto
 
-When you're ready, run:
+- `/app`: Pantallas y configuración de navegación (Expo Router).
+- `/components`: Componentes reutilizables (`ProductCard`, `SearchBar`).
+- `/api`: Servicios de conexión a datos.
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+Desarrollado para Prueba Técnica.
