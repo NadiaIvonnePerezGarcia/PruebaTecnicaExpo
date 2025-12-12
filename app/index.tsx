@@ -6,6 +6,7 @@ import ProductCard from '../components/ProductCard';
 import SearchBar from '../components/SearchBar';
 import LoadingScreen from '../components/LoadingScreen';
 import CategoryButton from '../components/CategoryButton';
+import FloatingCartButton from '../components/FloatingCartButton';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -107,6 +108,8 @@ export default function Home() {
           </View>
         }
       />
+
+      <FloatingCartButton />
     </View>
   );
 }
@@ -127,6 +130,7 @@ const styles = StyleSheet.create({
   listContent: {
     padding: 12,
     paddingTop: 4,
+    paddingBottom: 100, // Space for floating cart button
   },
   emptyContainer: {
     flex: 1,

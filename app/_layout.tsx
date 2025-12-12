@@ -1,7 +1,6 @@
 import "../global.css";
 import { Stack } from 'expo-router';
 import { CartProvider } from '../context/CartContext';
-import CartIcon from '../components/CartIcon';
 
 export default function Layout() {
   return (
@@ -17,7 +16,6 @@ export default function Layout() {
             fontSize: 20,
           },
           headerShadowVisible: false,
-          headerRight: () => <CartIcon />,
         }}
       >
         <Stack.Screen
@@ -25,7 +23,7 @@ export default function Layout() {
           options={{
             title: "NovaMarket",
             headerTitleAlign: 'center',
-            headerLeft: () => null, // Remove back button space if any
+            headerLeft: () => null,
           }}
         />
         <Stack.Screen name="detail" options={{ title: "Detalle" }} />
