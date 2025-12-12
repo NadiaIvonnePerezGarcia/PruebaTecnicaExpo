@@ -6,15 +6,24 @@ export default function Layout() {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#f4511e',
+          backgroundColor: '#0f172a', // slate-900
         },
-        headerTintColor: '#fff',
+        headerTintColor: '#f8fafc', // slate-50
         headerTitleStyle: {
           fontWeight: 'bold',
+          fontSize: 20,
         },
+        headerShadowVisible: false,
       }}
     >
-      <Stack.Screen name="index" options={{ title: "Inicio" }} />
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "NovaMarket",
+          headerTitleAlign: 'center',
+          headerLeft: () => null, // Remove back button space if any
+        }}
+      />
       <Stack.Screen name="detail" options={{ title: "Detalle" }} />
     </Stack>
   );

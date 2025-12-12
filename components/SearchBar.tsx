@@ -8,18 +8,18 @@ interface SearchBarProps {
 
 export default function SearchBar({ value, onChangeText }: SearchBarProps) {
     return (
-        <View className="flex-row items-center bg-white rounded-lg border border-gray-300 px-4 py-2 mb-4 mx-2 shadow-sm">
-            <Ionicons name="search" size={20} color="#9ca3af" />
+        <View className="flex-row items-center bg-white rounded-full border border-slate-200 px-5 py-3 mb-4 mx-4 shadow-sm">
+            <Ionicons name="search" size={20} color="#64748b" />
             <TextInput
-                className="flex-1 ml-2 text-base text-gray-800"
+                className="flex-1 ml-3 text-base text-slate-700 font-medium"
                 placeholder="Buscar productos..."
-                placeholderTextColor="#9ca3af"
+                placeholderTextColor="#94a3b8"
                 value={value}
                 onChangeText={onChangeText}
             />
             {value.length > 0 && (
                 <TouchableOpacity onPress={() => onChangeText('')}>
-                    <Ionicons name="close-circle" size={20} color="#9ca3af" />
+                    <Ionicons name="close-circle" size={20} color="#94a3b8" />
                 </TouchableOpacity>
             )}
         </View>

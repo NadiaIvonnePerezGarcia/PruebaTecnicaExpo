@@ -1,15 +1,15 @@
-# Prueba Técnica - App de Productos (Expo / React Native)
+# NovaMarket (Prueba Técnica Expo)
 
-Aplicación móvil desarrollada con Expo y React Native que consume la [FakeStoreAPI](https://fakestoreapi.com/) para mostrar un listado de productos y sus detalles.
+Aplicación móvil de e-commerce "Premium" desarrollada con Expo y React Native. Consume la [FakeStoreAPI](https://fakestoreapi.com/) y presenta una interfaz moderna y minimalista.
 
-## Requerimientos Cumplidos
+## Características de la Aplicación
 
-- **Pantalla Principal (Listado):** Muestra una lista de productos obtenidos de la API en tarjetas reutilizables.
-- **Pantalla de Detalle:** Muestra información detallada del producto (Imagen, Precio, Categoría, Descripción, Rating).
-- **Navegación:** Uso de React Navigation (Expo Router Stack) para navegar entre pantallas.
-- **API:** Fetching de datos usando `axios` desde FakeStoreAPI.
-- **Búsqueda (Bonus):** Barra de búsqueda funcional para filtrar productos localmente.
-- **UI/UX:** Diseño limpio y moderno utilizando **NativeWind (TailwindCSS)** e indicadores de carga.
+- **Identidad "NovaMarket":** Branding visual con paleta de colores neutros (Navy/Slate) y diseño limpio.
+- **Pantalla de Bienvenida:** Loading screen animada con identidad de marca.
+- **Catálogo Premium:** Listado de productos con tarjetas minimalistas y sombras suaves.
+- **Detalle Inmersivo:** Pantalla de detalle con imagen destacada y tipografía jerarquizada.
+- **Búsqueda Instantánea:** Filtrado local optimizado.
+- **Navegación Fluida:** Stack Navigator transparente y gestual.
 
 ## Instrucciones de Ejecución
 

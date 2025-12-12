@@ -11,22 +11,24 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     return (
         <TouchableOpacity
-            className="bg-white rounded-lg shadow-md m-2 p-4 flex-row items-center border border-gray-100"
+            className="bg-white rounded-xl shadow-sm m-2 p-4 flex-row items-center border border-slate-100"
             onPress={() => router.push({ pathname: "/detail", params: { product: JSON.stringify(product) } })}
         >
             <Image
                 source={{ uri: product.image }}
-                className="w-20 h-20 rounded-md object-contain"
+                className="w-24 h-24 rounded-md object-contain"
                 resizeMode="contain"
             />
-            <View className="flex-1 ml-4">
-                <Text className="text-lg font-bold text-gray-800" numberOfLines={1}>
-                    {product.title}
-                </Text>
-                <Text className="text-sm text-gray-500 capitalize" numberOfLines={1}>
-                    {product.category}
-                </Text>
-                <Text className="text-xl font-bold text-green-600 mt-2">
+            <View className="flex-1 ml-5 justify-between h-24 py-1">
+                <View>
+                    <Text className="text-base font-semibold text-slate-800 leading-tight" numberOfLines={2}>
+                        {product.title}
+                    </Text>
+                    <Text className="text-xs text-slate-400 capitalize mt-1 font-medium tracking-wide">
+                        {product.category}
+                    </Text>
+                </View>
+                <Text className="text-lg font-bold text-blue-900">
                     ${product.price.toFixed(2)}
                 </Text>
             </View>
