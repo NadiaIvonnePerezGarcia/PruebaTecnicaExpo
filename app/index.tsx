@@ -1,10 +1,11 @@
 
-import { View, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, FlatList, ScrollView, StyleSheet } from 'react-native';
 import { useEffect, useState, useMemo } from 'react';
 import { getProducts, Product } from '../api/products';
 import ProductCard from '../components/ProductCard';
 import SearchBar from '../components/SearchBar';
 import LoadingScreen from '../components/LoadingScreen';
+import CategoryButton from '../components/CategoryButton';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -56,7 +57,7 @@ export default function Home() {
     applyFilters(text, selectedCategory);
   };
 
-  const handleCategorySelect = (category: string) => {
+  const handleCategorySelect = (category: string | null) => {
     const newCategory = selectedCategory === category ? null : category;
     setSelectedCategory(newCategory);
     applyFilters(search, newCategory);
@@ -67,42 +68,29 @@ export default function Home() {
   }
 
   return (
-    <View className="flex-1 bg-slate-50 pt-4">
+    <View style={styles.container}>
       <View>
         <SearchBar value={search} onChangeText={handleSearch} />
-        <View className="mb-4">
+        <View style={styles.categoryContainer}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ paddingHorizontal: 20, gap: 10 }}
-            className="flex-row"
+            contentContainerStyle={styles.scrollContent}
           >
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => handleCategorySelect(null as any)}
-              className={`px-5 py-2.5 rounded-full border ${!selectedCategory
-                ? 'bg-slate-900 border-slate-900 shadow-md'
-                : 'bg-white border-slate-200'
-                }`}
-            >
-              <Text className={`font-semibold text-sm ${!selectedCategory ? 'text-white' : 'text-slate-600'}`}>
-                Todos
-              </Text>
-            </TouchableOpacity>
+            <CategoryButton
+              category={null}
+              label="Todos"
+              isSelected={selectedCategory === null}
+              onPress={() => handleCategorySelect(null)}
+            />
             {categories.map((cat) => (
-              <TouchableOpacity
+              <CategoryButton
                 key={cat}
-                activeOpacity={0.8}
+                category={cat}
+                label={cat}
+                isSelected={selectedCategory === cat}
                 onPress={() => handleCategorySelect(cat)}
-                className={`px-5 py-2.5 rounded-full border ${selectedCategory === cat
-                  ? 'bg-slate-900 border-slate-900 shadow-md'
-                  : 'bg-white border-slate-200'
-                  }`}
-              >
-                <Text className={`font-semibold capitalize text-sm ${selectedCategory === cat ? 'text-white' : 'text-slate-600'}`}>
-                  {cat}
-                </Text>
-              </TouchableOpacity>
+              />
             ))}
           </ScrollView>
         </View>
@@ -112,13 +100,43 @@ export default function Home() {
         data={filteredProducts}
         renderItem={({ item }) => <ProductCard product={item} />}
         keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={{ padding: 12, paddingTop: 4 }}
+        contentContainerStyle={styles.listContent}
         ListEmptyComponent={
-          <View className="flex-1 items-center justify-center mt-20">
-            <Text className="text-slate-400 text-lg font-medium">No se encontraron productos</Text>
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>No se encontraron productos</Text>
           </View>
         }
       />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8fafc', // slate-50
+    paddingTop: 16,
+  },
+  categoryContainer: {
+    marginBottom: 16,
+  },
+  scrollContent: {
+    paddingHorizontal: 20,
+    gap: 10,
+  },
+  listContent: {
+    padding: 12,
+    paddingTop: 4,
+  },
+  emptyContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 80,
+  },
+  emptyText: {
+    color: '#94a3b8', // slate-400
+    fontSize: 18,
+    fontWeight: '500',
+  },
+});
