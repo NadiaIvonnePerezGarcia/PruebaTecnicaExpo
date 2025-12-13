@@ -1,6 +1,6 @@
 # NovaMarket (Prueba Técnica Expo)
 
-Aplicación móvil de e-commerce "Premium" desarrollada con Expo y React Native. Consume la [FakeStoreAPI](https://fakestoreapi.com/) y presenta una interfaz moderna y minimalista.
+Aplicación móvil de e-commerce "Premium" desarrollada con Expo y React Native. Consume la [FakeStoreAPI](https://fakestoreapi.com/)
 
 ## Características de la Aplicación
 
@@ -44,5 +44,4 @@ Sigue estos pasos para correr el proyecto localmente:
 - `/components`: Componentes reutilizables (`ProductCard`, `SearchBar`).
 - `/api`: Servicios de conexión a datos.
 
----
-Desarrollado para Prueba Técnica.
+
